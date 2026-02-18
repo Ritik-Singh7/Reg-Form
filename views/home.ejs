@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleDB | Dark Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth Dark Gradient Animation */
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Aura Animation */
+        @keyframes orbit {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .dark-bg {
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b);
+            background-size: 400% 400%;
+            animation: gradient-move 15s ease infinite;
+        }
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .neon-glow {
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+        }
+
+        .aura {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            animation: orbit 10s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="dark-bg h-screen w-full flex items-center justify-center overflow-hidden font-sans">
+
+    <div class="aura top-[-10%] left-[-5%]"></div>
+    <div class="aura bottom-[0%] right-[0%]" style="animation-delay: -5s;"></div>
+
+    <main class="relative z-10 w-full max-w-lg px-6">
+        <div class="glass-dark p-10 rounded-[2.5rem] text-center border-t border-white/10">
+            
+            <div class="mb-8 inline-block">
+                <div class="w-20 h-20 bg-blue-600/20 rounded-2xl flex items-center justify-center text-4xl neon-glow border border-blue-500/30">
+                    ⚡
+                </div>
+            </div>
+
+            <h1 class="text-4xl font-bold text-white mb-3 tracking-tight">
+                Simple<span class="text-blue-500">DB</span> <span class="text-xs align-top font-light text-blue-400/60 uppercase">Pro</span>
+            </h1>
+            
+            <p class="text-gray-400 mb-12 text-md leading-relaxed">
+                A minimal database interface for fast data <br class="hidden sm:block"> input and retrieval.
+            </p>
+
+            <div class="space-y-4">
+                
+                <a href="/create" class="btn-glow block w-full bg-blue-600 hover:bg-blue-500 text-white py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Create New Entry
+                </a>
+
+                <a href="/read" class="block w-full bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                    </svg>
+                    Read All Data
+                </a>
+
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-white/5">
+                <span class="px-3 py-1 bg-white/5 rounded-full text-[10px] text-gray-500 tracking-[3px] uppercase">
+                    System Online
+                </span>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

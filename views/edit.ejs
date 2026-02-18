@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing form</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-zinc-950 flex items-center justify-center pt-10">
+
+    <a href="/" class="absolute top-5 left-5 text-white bg-blue-600 rounded-full px-4 py-2 hover:bg-blue-700 transition-colors">
+        Back to home
+    </a>
+
+
+    <div class="main-box bg-zinc-900 rounded-3xl pl-10 pr-10">
+        <div class="p-10 text-center pb-15">
+            <div class="text-white font-bold text-4xl"><h1>Edit Account</h1></div>
+            <div class="text-white font-thin text-lg mt-2"><p></p></div>
+        </div>
+
+        
+        
+        
+        <div class="px-10 flex items-center justify-center">
+            <form action="/edit/<%= editData._id %>" class="" method="post">
+                <div class="pb-7">
+                    <label for="Full Name" class="text-white block ml-1 pb-2">Full Name</label>
+                    <input type="text" value="<%= editData.name %>" placeholder="Enter your name" name="name" class="text-white block bg-zinc-600 rounded-xl pl-3 pt-1 pb-1 outline-none">
+                </div>
+
+                <div class="pb-7">
+                    <label for="Gmail" class="text-white block ml-1 pb-2">Gmail</label>
+                    <input type="text" value="<%= editData.gmail %>" placeholder="Enter your gmail" name="gmail" class="text-white block bg-zinc-600 rounded-xl pl-3 pt-1 pb-1 outline-none">
+                </div>
+
+                <div class="pb-10">
+                    <label for="Age" class="text-white block ml-1 pb-2">Age</label>
+                    <input type="text" value="<%= editData.age %>" placeholder="Enter your age" name="age" class="text-white block bg-zinc-600 rounded-xl pl-3 pt-1 pb-1 outline-none">
+                </div>
+
+                <div class="pb-10">
+                    <label for="Image" class="text-white block ml-1 pb-2">Profile Picture</label>
+                    <input type="text" value="<%= editData.image %>" placeholder="Enter your image url" name="image" class="text-white block bg-zinc-600 rounded-xl pl-3 pt-1 pb-1 outline-none">
+                </div>
+
+                <div class="pb-10 flex items-center justify-center gap-7">
+                    <input type="submit" class="top-5 left-5 text-white bg-blue-600 rounded-full px-4 py-2 hover:bg-blue-700 transition-colors cursor-pointer">
+                </div>
+            </form>
+        </div> 
+    </div>
+</body>
+</html>

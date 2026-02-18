@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-zinc-950">
+
+
+
+
+
+    <div class="min-h-screen w-full p-10 pt-24 text-white">
+
+        <div class="fixed top-0 left-0 w-full h-20 bg-blue-600/90 backdrop-blur-md flex justify-center items-center z-50 shadow-2xl">
+            <div class="absolute left-5 w-10 h-10 bg-white/20  rounded-full flex justify-center items-center cursor-pointer transition-all">
+                <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="" srcset=""></a>
+            </div>
+            <div class="text-4xl font-bold tracking-tighter">All Users</div>
+        </div>
+
+        <div class="users flex flex-wrap justify-center md:justify-start gap-6 pt-7">
+
+            <% users.forEach( function (user){ %>
+                <div class="user w-80 p-5 bg-zinc-900 border border-zinc-800 rounded-xl group hover:scale-105 transition-transform duration-300">
+                    <div class="image w-full flex justify-center items-center h-40 bg-zinc-700 rounded-lg mb-4"><img class="rounded-lg max-w-80 max-h-40 " src= <%= user.image %> alt=""></div>
+                    <div class="info space-y-1">
+                        <h3 class="text-xl font-bold text-blue-400">Name: <%= user.name %></h3>
+                        <h4 class="text-zinc-400 font-medium">Age: <%= user.age %> </h4>
+                        <h4 class="text-zinc-500 text-sm"> G-mail: <%= user.gmail %></h4>
+                    </div>
+                    <div class="mt-5 flex justify-between">
+                        <a href="/edit/<%= user._id %>" class="pl-5 pr-5 pt-2 pb-2 bg-blue-700 rounded-full hover:bg-blue-900 transition-all">Edit</a>
+
+                        <form action="/delete/<%= user._id %>" method="post">
+                            <button
+                            class="pl-5 pr-5 pt-2 pb-2 bg-red-700 rounded-full hover:bg-red-900 transition-all">
+                            Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
